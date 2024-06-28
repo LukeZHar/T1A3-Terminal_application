@@ -173,7 +173,7 @@ Your checklists for each feature should have at least 5 items.
 - Tasks:
     - Setup project structure and directories.
     - Implement input prompt for deck name.
-    - Check if deck already exists.
+    - Check if deck already exists function.
     - Create new JSON file if not exists.
     - Add error handling for file operations.
   
@@ -191,7 +191,7 @@ Deadline: 01/07/2024
 
 1.3 Select Deck
 - Tasks:
-    - List all existing decks.
+    - List all existing decks function.
     - Implement input prompt for selecting a deck.
     - Validate user input.
     - Set selected deck to current working deck.
@@ -220,8 +220,8 @@ Deadline: 01/07/2024
 
 Deadline: 02/07/2024
 
-### Quiz Mode
-3.1 Implement Quiz Mode
+### Quiz
+3.1 Implement Quiz
 - Tasks:
     - Load the selected deck from JSON file.
     - Shuffle the order of flashcards.
@@ -263,7 +263,9 @@ Deadline: 04/07/2024
 
 Deadline: 05/07/2024
 
-
+### Trello Screenshots
+![Trello board](./docs/Trello/Trello.png)
+![Trello Tasks](./docs/Trello/trello-tasks.png)
 # R8
 
 Design help documentation which includes a set of instructions which accurately describe how to use and install the application.
