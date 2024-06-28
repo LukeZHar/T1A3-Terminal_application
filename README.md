@@ -165,8 +165,103 @@ Utilise a suitable project management platform to track this implementation plan
 
 Provide screenshots/images and/or a reference to an accessible project management platform used to track this implementation plan. 
 
-> Your checklists for each feature should have at least 5 items.
+Your checklists for each feature should have at least 5 items.
 
+## Implementation Plan
+### Deck Management
+1.1 Create Deck
+- Tasks:
+    - Setup project structure and directories.
+    - Implement input prompt for deck name.
+    - Check if deck already exists.
+    - Create new JSON file if not exists.
+    - Add error handling for file operations.
+  
+Deadline: 01/07/2024
+
+1.2 Delete Deck
+- Tasks:
+    - Implement input prompt for deck name.
+    - Check if deck file exists.
+    - Delete the JSON file.
+    - Add error handling for file operations.
+    - Confirm deletion.
+
+Deadline: 01/07/2024
+
+1.3 Select Deck
+- Tasks:
+    - List all existing decks.
+    - Implement input prompt for selecting a deck.
+    - Validate user input.
+    - Set selected deck to current working deck.
+    - Confirm selection.
+
+Deadline: 01/07/2024
+
+1.4 List Decks
+- Tasks:
+    - Implement function to list all JSON files in directory.
+    - Format the output to exclude file extensions.
+    - Enhance output readability.
+    - Test listing with multiple decks.
+    - Add error handling for directory read.
+
+Deadline: 01/07/2024
+
+### Flashcard Creation
+2.1 Add Flashcard
+- Tasks:
+    - Implement input prompts for question and answer.
+    - Load the selected deck from JSON file.
+    - Append new flashcard to the deck.
+    - Save updated deck back to JSON file.
+    - Add error handling for file I/O operations.
+
+Deadline: 02/07/2024
+
+### Quiz Mode
+3.1 Implement Quiz Mode
+- Tasks:
+    - Load the selected deck from JSON file.
+    - Shuffle the order of flashcards.
+    - Implement loop to iterate through flashcards.
+    - Prompt for answers and check.
+    - Track correct and incorrect answers.
+
+Deadline: 03/07/2024
+
+3.2 Scoring
+- Tasks:
+    - Count correct and incorrect responses.
+    - Display results at the end of the quiz.
+    - Test scoring with different decks.
+    - Handle edge cases (e.g., empty deck).
+    - Add error handling for unexpected inputs.
+
+Deadline: 03/07/2024
+
+### Review Mode
+4.1 Implement Review Mode
+- Tasks:
+    - Store input during the quiz.
+    - Implement function to display inputs and correct answers.
+    - Format the output for review clarity.
+    - Allow navigation through reviewed questions.
+    - Handle various review scenarios (all correct and incorrect inputs).
+
+Deadline: 04/07/2024
+
+### Save and Load
+5.1 Save and Load Decks
+- Tasks:
+    - Implement function to save the deck to JSON.
+    - Implement function to load the deck from JSON.
+    - Ensure data integrity during save/load.
+    - Add error handling for file I/O operations.
+    - Test save/load with large decks.
+
+Deadline: 05/07/2024
 
 
 # R8
