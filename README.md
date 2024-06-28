@@ -73,6 +73,87 @@ Note: Ensure that your features above allow you to demonstrate your understandin
 
 Consult with your educator to check your features are sufficient .
 
+## Features and Functions
+### Deck Management
+#### Create Deck:  
+- Description: Create a new deck. Input the deck name, verified to avoid duplicates, and then saves as a new JSON file.
+
+- Logic: 
+    - Prompts for a deck name.
+    - Check if the deck name already exists.
+    - If it does not exist, create a new JSON file for the deck.
+    - If it does exist, asks for a different name.
+
+#### Delete Deck:  
+- Description: Delete an existing deck by specifying its name.
+
+- Logic:
+    - Prompts for the deck name.
+    - Check if the deck exists in the directory.
+    - If it exists, delete the JSON file.
+    - If it does not exist, prompts name doesnt exist.
+
+#### Select Deck
+- Description: Select a deck to perform operations.
+
+- Logic:
+    - List all available decks.
+    - Prompt to choose a deck by number.
+    - Validates input and sets the current deck.
+
+#### List Decks:
+- Description: Helper function to list all decks.
+
+- Logic:
+    - Retrieve all JSON files from the decks directory.
+    - Display the names of the decks (without the .json extension).
+
+
+### Flashcard Creation
+- Description: Add new flashcards to the selected deck by providing a question and an answer.
+
+- Logic:
+    - Prompts for a question and an answer.
+    - Load the current deck from its JSON file.
+    - Append the new flashcard to the deck.
+    - Save the updated deck back to the JSON file.
+
+
+### Quiz Mode
+- Description: Shuffles flashcards then quizzes you, keeping track of correct and incorrect responses.
+
+- Logic:
+    - Load the selected deck.
+    - Shuffle the order of flashcards.
+    - Loop through each flashcard, prompting the user for an answer.
+    - Track correct and incorrect answers.
+    - Display the quiz score at the end.
+
+
+### Scoring
+- Description: Tracks the number of correct and incorrect answers during the quiz for the user to see their progress.
+
+- Logic:
+    - Maintain counters for correct and incorrect answers.
+    - Update counters based on user’s responses during the quiz.
+
+
+### Review
+- Description: After completing a quiz session, you can review your answers and see where you need to improve.
+
+- Logic:
+    - Store each question, input, and correct answer during the quiz.
+    - After the quiz, display all these results for review.
+
+ 
+### Save and Load
+- Description: Save flashcards and decks in JSON files to load them later.
+
+- Logic:
+    - Save: Convert the deck list to JSON format and write it to a file.
+    - Load: Read the JSON file, parse it, and return the deck list.
+
+
 # R7
 
 Develop an implementation plan which:
@@ -85,6 +166,8 @@ Utilise a suitable project management platform to track this implementation plan
 Provide screenshots/images and/or a reference to an accessible project management platform used to track this implementation plan. 
 
 > Your checklists for each feature should have at least 5 items.
+
+
 
 # R8
 
