@@ -23,3 +23,14 @@ def save_deck(deck_name, deck):
     with open(deck_file, "w") as file:
         json.dump(deck, file)
 
+def list_decks():
+    return [f.replace(".json", "") for f in os.listdir(base_dir) if f.endswith(".json")]
+
+def create_deck(deck_name):
+    deck_name = input("Enter deck name: ").strip()
+    if deck_name and deck_name not in list_decks():
+        save_deck(deck_name, [])
+        print(f"Deck '{deck_name}' created.")
+    else:
+        print("Deck already exists.")
+
