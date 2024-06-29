@@ -43,3 +43,18 @@ def delete_deck(deck_name):
     else:
         print("Deck does not exist.")
 
+def select_deck():
+    decks = list_decks()
+    if not decks:
+        print("No decks found. Create one first.")
+        return None
+    print("Select a deck:")
+    for i, deck in enumerate(decks, 1):
+        print(f"{i}. {deck}")
+    choice = input("Enter the deck number to choose: ").strip()
+    if choice.isdigit() and 1 <= int(choice) <= len(decks):
+        return decks[int(choice) - 1]
+    print("Invalid choice.")
+    return None
+
+def add_flashcard(deck_name):
