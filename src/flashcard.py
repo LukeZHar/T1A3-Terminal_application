@@ -34,3 +34,12 @@ def create_deck(deck_name):
     else:
         print("Deck already exists.")
 
+def delete_deck(deck_name):
+    deck_name = input("Enter deck name: ").strip()
+    deck_file = get_deck_file(deck_name)
+    if os.path.exists(deck_file):
+        os.remove(deck_file)
+        print(f"Deck '{deck_name}' deleted.")
+    else:
+        print("Deck does not exist.")
+
