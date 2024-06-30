@@ -1,3 +1,4 @@
 # No third-party dependencies, only standard Python library modules
 # Ensure Python 3.x is installed:
 python>=3.6
+pytest
