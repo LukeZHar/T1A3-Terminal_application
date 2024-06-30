@@ -135,3 +135,13 @@ def quiz(deck_name):
     print(f"\nQuiz over! Here's your score: {correct}/{correct + incorrect}")
     review_results(results)
 
+
+# Review results
+def review_results(results):
+    # Review mode to display questions with users answers, and correct answers after a quiz.
+    print("\nReview mode:")
+    for question, answer, correct_answer in results:
+        print(f"Question: {question}")
+        print(f"Answer: {answer}")
+        print(f"Correct Answer: {correct_answer}")
+        print("")
