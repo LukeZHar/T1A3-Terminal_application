@@ -97,8 +97,41 @@ def add_flashcard(deck_name, question=None, answer=None):
 # View a flashcard
 def view_flashcard(deck_name):
     deck = load_deck(deck_name)
-    if deck:
-        for i, flashcard in enumerate(deck, 1):
-            print(f"{i}. {flashcard['question']} - {flashcard['answer']}")
-    else:
-        print("No flashcards found in deck.")
+    if not deck:
+        print("No flashcards found.")
+        return
+    # Print the list of flashcards
+    for i, flashcard in enumerate(deck):
+        print(f"{i+1}. Question: {flashcard['question']}\n   Answer: {flashcard['answer']}")
+
+# quiz mode and shuffle
+def quiz(deck_name):
+    deck = load_deck(deck_name)
+    if not deck:
+        print("No flashcards to quiz in this deck.")
+        return
+    # Shuffle the deck
+    random.shuffle(deck)
+    correct = 0
+    incorrect = 0
+    results = []
+    
+    for flashcard in deck:
+        # Print the flashcard
+        print(f"\nQuestion: {flashcard['question']}")
+        # Get the user's answer
+        answer = input("Answer: ").strip()
+        # Check if the answer is correct
+        if answer.lower() == flashcard['answer'].lower():
+            print("Correct!")
+            correct += 1
+        # Check if the answer is incorrect
+        else:
+            print(f"Incorrect. The correct answer is: {flashcard['answer']}")
+            incorrect += 1
+        results.append((flashcard['question'], answer, flashcard['answer']))
+
+    # Print the quiz results
+    print(f"\nQuiz over! Here's your score: {correct}/{correct + incorrect}")
+    review_results(results)
+
