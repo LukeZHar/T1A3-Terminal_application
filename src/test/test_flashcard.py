@@ -23,3 +23,28 @@ def test_create_and_load_deck(setup_env):
     save_deck(deck_name, data)
     loaded_data = load_deck(deck_name)
     assert loaded_data == data
+
+def test_list_decks(setup_env):
+    # Test list decks
+    deck_name1 = "test_deck"
+    deck_name2 = "test_deck2"
+    save_deck(deck_name1, [])
+    save_deck(deck_name2, [])
+    decks = list_decks()
+    assert decks == [deck_name1, deck_name2]
+
+def test_add_flashcard(setup_env):
+    # Test add flashcard
+    deck_name = "test_deck"
+    save_deck(deck_name, [])
+    add_flashcard(deck_name, "test_question", "test_answer")
+    deck = load_deck(deck_name)
+    assert len(deck) == 1
+    assert deck[0] == ["Question"] == "test_question"
+    assert deck[0] == ["Answer"] == "test_answer"
+
+# Add more test cases as needed
+
+# Call main() to run the tests
+if __name__ == "__main__":
+    pytest.main()
