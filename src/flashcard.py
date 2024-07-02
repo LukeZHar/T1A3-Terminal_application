@@ -40,7 +40,7 @@ def list_decks():
 # Creates a new deck
 def create_deck(deck_name):
     deck_name = input("Enter deck name: ").strip()
-    if deck_name and deck_name not in list_decks():
+    if deck_name not in list_decks():
         save_deck(deck_name, [])
         print(f"Deck '{deck_name}' created.")
     # Check if the deck already exists

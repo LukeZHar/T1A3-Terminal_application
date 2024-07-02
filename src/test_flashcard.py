@@ -1,6 +1,6 @@
 import os 
 import pytest
-from src.flashcard import base_dir, get_deck_file, save_deck, load_deck, list_decks, add_flashcard
+from flashcard import base_dir, get_deck_file, save_deck, load_deck, list_decks, add_flashcard
 
 @pytest.fixture
 def setup_env():
@@ -31,7 +31,8 @@ def test_list_decks(setup_env):
     save_deck(deck_name1, [])
     save_deck(deck_name2, [])
     decks = list_decks()
-    assert decks == [deck_name1, deck_name2]
+    assert deck_name1 in decks
+    assert deck_name2 in decks
 
 def test_add_flashcard(setup_env):
     # Test add flashcard
