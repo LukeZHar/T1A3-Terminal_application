@@ -26,10 +26,10 @@ pytest test_flashcard.py
 # Check if tests passed
 if [ $? -eq 0 ]
 then
-    echo "Tests passed. Exiting..."
+    echo "Tests passed. Exiting test..."
     
 else
-    echo "Tests failed. Exiting..."
+    echo "Tests failed. Exiting test..."
     exit 1
 fi
 
