@@ -1,147 +1,83 @@
+import json
 import os
 import random
-import json
 
-# Directory for the deck storage
-base_dir = "decks"
+class Flashcard:
+    def __init__(self, question: str, answer: str):
+        self.question = question
+        self.answer = answer
 
-# Ensure the base directory exists at startup
-if not os.path.exists(base_dir):
-    os.makedirs(base_dir)
+class Deck:
+    def __init__(self, name: str):
+        self.name = name
+        self.flashcards = []
 
-# Get the full path to the deck file
-def get_deck_file(deck_name):
-    # Constructs the full path to the deck file
-    return os.path.join(base_dir, f"{deck_name}.json")
+    def add_flashcard(self, flashcard: Flashcard):
+        self.flashcards.append(flashcard)
 
-# Loads the deck from the JSON file
-def load_deck(deck_name):
-    deck_file = get_deck_file(deck_name)
-    # Check if the deck file exists
-    if not os.path.exists(deck_file):
-        with open(deck_file, "r") as file:
-            return json.load(file)  
-    return []
+    def to_dict(self):
+        return {"name": self.name, "flashcards": [{"question": fc.question, "answer": fc.answer} for fc in self.flashcards]}
 
-# Saves the deck to the JSON file
-def save_deck(deck_name, deck):
-    deck_file = get_deck_file(deck_name)
-    try:    
-        with open(deck_file, "w") as file:
-            json.dump(deck, file)
-    # Catch any exceptions and print an error message
-    except Exception as e:
-        print(f"Failed to save deck: {e}")
+    @staticmethod
+    def from_dict(deck_dict):
+        deck = Deck(deck_dict["name"])
+        for fc_dict in deck_dict["flashcards"]:
+            deck.add_flashcard(Flashcard(fc_dict["question"], fc_dict["answer"]))
+        return deck
 
-# Lists all the decks
-def list_decks():
-    return [f.replace(".json", "") for f in os.listdir(base_dir) if f.endswith(".json")]
+class DeckManager:
+    def __init__(self, filename='decks.json'):
+        self.decks = {}
+        self.filename = filename
+        self.load_decks()
 
-# Creates a new deck
-def create_deck(deck_name):
-    deck_name = input("Enter deck name: ").strip()
-    if deck_name not in list_decks():
-        save_deck(deck_name, [])
-        print(f"Deck '{deck_name}' created.")
-    # Check if the deck already exists
-    else:
-        print("Deck already exists.")
+    def create_deck(self, name):
+        if name in self.decks:
+            raise ValueError("Deck with this name already exists.")
+        self.decks[name] = Deck(name)
 
-# Deletes a deck
-def delete_deck(deck_name):
-    deck_name = input("Enter deck name: ").strip()
-    deck_file = get_deck_file(deck_name)
-    # Check if the deck file exists
-    if os.path.exists(deck_file):
-        os.remove(deck_file)
-        print(f"Deck '{deck_name}' deleted.")
-    # Check if the deck file does not exist
-    else:
-        print("Deck does not exist.")
+    def delete_deck(self, name):
+        if name not in self.decks:
+            raise ValueError("Deck not found.")
+        del self.decks[name]
 
-# Selects a deck
-def select_deck():
-    decks = list_decks()
-    if not decks:
-        print("No decks found. Create one first.")
-        return None
-    # Select a deck
-    print("Select a deck:")
-    # Print the list of decks
-    for i, deck in enumerate(decks, 1):
-        print(f"{i}. {deck}")
-    # Get the user's choice
-    choice = input("Enter the deck number to choose: ").strip()
-    # Check if the choice is valid
-    if choice.isdigit() and 1 <= int(choice) <= len(decks):
-        return decks[int(choice) - 1]
-    print("Invalid choice.")
-    return None
+    def get_deck(self, name):
+        if name not in self.decks:
+            raise ValueError("Deck not found.")
+        return self.decks[name]
 
-# Adds a flashcard
-def add_flashcard(deck_name, question=None, answer=None):
-    # Allows input of question and answer
-    if not question:
-        question = input("Enter the question: ").strip()
-    if not answer:
-        answer = input("Enter the answer: ").strip()
-    if question and answer:
-        # Add the flashcard to the deck
-        deck = load_deck(deck_name)
-        deck.append({"question": question, "answer": answer})
-        save_deck(deck_name, deck)
-        print(f"Flashcard added to deck '{deck_name}'.")
-    else:
-        print("Question and answer cannot be empty.")
+    def save_decks(self):
+        try:
+            with open(self.filename, 'w') as f:
+                json.dump([deck.to_dict() for deck in self.decks.values()], f, indent=4)
+        except IOError as e:
+            print(f"Error saving decks to {self.filename}: {e}")
 
-# View a flashcard
-def view_flashcard(deck_name):
-    deck = load_deck(deck_name)
-    if not deck:
-        print("No flashcards found.")
-        return
-    # Print the list of flashcards
-    for i, flashcard in enumerate(deck):
-        print(f"{i+1}. Question: {flashcard['question']}\n   Answer: {flashcard['answer']}")
+    def load_decks(self):
+        if os.path.exists(self.filename):
+            try:
+                with open(self.filename, 'r') as f:
+                    decks_list = json.load(f)
+                    self.decks = {deck_dict["name"]: Deck.from_dict(deck_dict) for deck_dict in decks_list}
+            except (IOError, json.JSONDecodeError) as e:
+                print(f"Error loading decks from {self.filename}: {e}")
 
-# quiz mode and shuffle
-def quiz(deck_name):
-    deck = load_deck(deck_name)
-    if not deck:
-        print("No flashcards to quiz in this deck.")
-        return
-    # Shuffle the deck
-    random.shuffle(deck)
-    correct = 0
-    incorrect = 0
-    results = []
-    
-    for flashcard in deck:
-        # Print the flashcard
-        print(f"\nQuestion: {flashcard['question']}")
-        # Get the user's answer
-        answer = input("Answer: ").strip()
-        # Check if the answer is correct
-        if answer.lower() == flashcard['answer'].lower():
-            print("Correct!")
-            correct += 1
-        # Check if the answer is incorrect
-        else:
-            print(f"Incorrect. The correct answer is: {flashcard['answer']}")
-            incorrect += 1
-        results.append((flashcard['question'], answer, flashcard['answer']))
+    def quiz(self, deck_name):
+        deck = self.get_deck(deck_name)
+        flashcards = deck.flashcards.copy()
+        random.shuffle(flashcards)  # Shuffle flashcards
 
-    # Print the quiz results
-    print(f"\nQuiz over! Here's your score: {correct}/{correct + incorrect}")
-    review_results(results)
+        correct = 0
+        incorrect = 0
+        for card in flashcards:
+            print(f"Question: {card.question}")
+            user_answer = input("Your answer: ").strip()
 
+            if user_answer.lower() == card.answer.lower():  # Case-insensitive comparison
+                correct += 1
+                print("Correct!")
+            else:
+                incorrect += 1
+                print(f"Incorrect. The correct answer is: {card.answer}")
 
-# Review results
-def review_results(results):
-    # Review mode to display questions with users answers, and correct answers after a quiz.
-    print("\nReview mode:")
-    for question, answer, correct_answer in results:
-        print(f"Question: {question}")
-        print(f"Answer: {answer}")
-        print(f"Correct Answer: {correct_answer}")
-        print("")
+        return correct, incorrect  

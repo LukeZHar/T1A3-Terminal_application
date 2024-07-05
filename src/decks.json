@@ -1,0 +1,27 @@
+[
+    {
+        "name": "Maths",
+        "flashcards": [
+            {
+                "question": "What's 2+2",
+                "answer": "4"
+            },
+            {
+                "question": "What's 10x4",
+                "answer": "40"
+            },
+            {
+                "question": "What's 20/2",
+                "answer": "10"
+            },
+            {
+                "question": "Whats 3-1",
+                "answer": "2"
+            }
+        ]
+    },
+    {
+        "name": "Coding",
+        "flashcards": []
+    }
+]
