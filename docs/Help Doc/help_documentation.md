@@ -17,4 +17,4 @@
    - It will check your system for what is outlined in 'requirements.txt' 
    - It will download pytest if you don't have it already
    - It will run a test on a few features that are in 'test_flashcard.py' 
-
+   - Then will run the application
