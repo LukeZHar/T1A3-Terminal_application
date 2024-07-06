@@ -1,6 +1,6 @@
 # Flashcard application Help Documentation
 
-## Installation Steps:
+## Installation Steps (simple version):
 
 1. Clone Repository:
    - Open your terminal
@@ -18,3 +18,46 @@
    - It will download pytest if you don't have it already
    - It will run a test on a few features that are in 'test_flashcard.py' 
    - Then will run the application
+
+- Bonus step: 
+   - Make sure you have python downloaded 
+
+----
+## Second option for setting up (Longer version):
+
+1. Clone Repository:
+   - Open your terminal
+   - Run this command to clone the repository: 'git clone https://github.com/LukeZHar/T1A3-Terminal_application.git'
+
+2. Activate Virtual Environments (optional) 
+   - On your terminal enter one of the following, depending on your system.
+   - Unix/MacOs: 'source venv/bin/activate'
+   - Windows: 'venv/Scripts/activate
+
+3. Install Dependicies:
+   - In your terminal cd into T1A3-Terminal_application and run 'pip install -r requirements.txt'
+
+4. Usage instructions:
+   - Running the application:
+      - In the terminal cd into T1A3-Terminal_application/src and run: 'python3 main.py'
+
+5. Navigating the application
+   - Create Deck: Choose 1 to create a new deck with a name of your choice
+   - Delete Deck: Choose 2 to Delete an existing deck
+   - Select Deck: Choose 3 to Select a deck from the list shown 
+   - Add Flashcard: Choose 4 to add a flashcard to the deck you have chosen, otherwise it will ask you to choose a deck first
+   - View Flashcard: Choose 5 to View your current flashcard in the deck your in
+   - Quiz: Choose 6 to start a quiz with your flashcards in your current selected deck, flashcards will be shuffled 
+   - Exit: choose 7 to Exit the terminal application
+
+---
+## Aditional information
+Dependencies:
+- Python >= 3.6
+- pytest
+
+System/Hardware requirements:
+- Operating system: Windows/Linux/MacOS
+- Python 3.6 or higher
+- Some memory and storage for running python
+
