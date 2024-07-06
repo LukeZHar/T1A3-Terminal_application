@@ -1,4 +1,3 @@
 # No third-party dependencies, only standard Python library modules
 # Ensure Python 3.x is installed:
 pytest
-python>=3.6

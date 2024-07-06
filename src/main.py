@@ -1,10 +1,15 @@
+# import from flashcard.py
 from flashcard import Flashcard, Deck, DeckManager
 
+# main function
 def main():
     deck_manager = DeckManager()  # Initialize the Deck Manager
-    current_deck = None
+    current_deck = None # Variable to store the current deck
 
+    # Main menu loop
     while True:
+        
+        # Display the main menu
         try:
             print("\nFlashcard Application:")
             print("1. Create Deck")
@@ -14,19 +19,23 @@ def main():
             print("5. View Flashcards")
             print("6. Quiz")
             print("7. Exit")
-
+            
+            # Get input
             choice = input("Enter your choice: ").strip()
 
+            # Process input into create deck
             if choice == "1":
                 deck_manager.create_deck(input("Enter deck name: "))
                 deck_manager.save_decks()
                 print("Deck created successfully.")
-
+            
+            # Process input into delete deck
             elif choice == "2":
                 deck_manager.delete_deck(input("Enter deck name to delete: "))
                 deck_manager.save_decks()
                 print("Deck deleted successfully.")
 
+            # Process input into select deck
             elif choice == "3":
                 print("\nAvailable Decks:")
                 for deck_name in deck_manager.decks.keys():
