@@ -3,6 +3,8 @@
 - Title: Flashcard Terminal Application
 - Author: Luke Harris
 - End Date: 07/07/2024
+- [Link to help doc](./docs/Help%20Doc/help_documentation.md)
+- [Link to pseudocode doc](./docs/pseudocode/pseudocode.md)
 
 ## Project Overview
 This terminal application allows you to create and manage flashcards through the command line and then quiz yourself on the questions you provided. 
@@ -196,62 +198,5 @@ Deadline: 05/07/2024
 
 - [Link to Trello Website as a reference](https://trello.com/)
 
-# R8
 
-Design help documentation which includes a set of instructions which accurately describe how to use and install the application.
-
-You must include:
-- steps to install the application
-- any dependencies required by the application to operate
-- any system/hardware requirements
-- how to use any command line arguments made for the application
-
-
-2. CODE REQUIREMENTS:  
-
-# R9
-
-Implement features in the software development plan you have designed. You must utilise a range of programming concepts and structures using Python such as:
-
-- variables and variable scope
-
-- loops and conditional control structures
-
-- write and utilise simple functions
-
-- error handling
-
-- input and output
-
-- importing a Python package
-
-- using functions from a Python package
-
-# R10
-
-Apply DRY (Don’t Repeat Yourself) coding principles to all code produced.
-
-# R11
-
-Apply all style and conventions for the programming language consistently to all code produced.
-
-# R12
-
-Creates an application which runs without error and has features that are consistent with the development plan.
-
-# R13
-
-Utilise source control throughout the development of the application by:
-
-- making regular commits (at least 20 commits) with a commit message that summarises the changes
-
-- pushing all commits to a remote repository
-
-# R14
-
-Utilise developer tools to facilitate the execution of the application:
-
-For example,
-
-- writing a script which turns the application into an executable
 
