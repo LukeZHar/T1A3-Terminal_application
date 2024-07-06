@@ -1,46 +1,64 @@
+# imports for this module
 import json
 import os
 import random
 
+# class for flashcard
 class Flashcard:
     def __init__(self, question: str, answer: str):
+        # Initialize flashcard with question and answer
         self.question = question
         self.answer = answer
 
+# class for deck
 class Deck:
     def __init__(self, name: str):
+        # Initialize deck with name and an empty list of flashcards
         self.name = name
         self.flashcards = []
 
+    # Add flashcard to deck
     def add_flashcard(self, flashcard: Flashcard):
         self.flashcards.append(flashcard)
 
+    # Convert deck to dictionary with a JSON-compatible format
     def to_dict(self):
         return {"name": self.name, "flashcards": [{"question": fc.question, "answer": fc.answer} for fc in self.flashcards]}
 
+
     @staticmethod
     def from_dict(deck_dict):
+        # Convert deck dictionary to deck object
         deck = Deck(deck_dict["name"])
         for fc_dict in deck_dict["flashcards"]:
             deck.add_flashcard(Flashcard(fc_dict["question"], fc_dict["answer"]))
         return deck
 
+# class for deck manager
 class DeckManager:
     def __init__(self, filename='decks.json'):
+        #Initialize deck manager with a list of decks and a filename
         self.decks = {}
         self.filename = filename
         self.load_decks()
 
+    # Create a new deck
     def create_deck(self, name):
+        # Check if deck with this name already exists
         if name in self.decks:
             raise ValueError("Deck with this name already exists.")
+        # Add deck to deck manager
         self.decks[name] = Deck(name)
 
+    # Delete a deck
     def delete_deck(self, name):
+        # Check if deck with this name exists
         if name not in self.decks:
             raise ValueError("Deck not found.")
+        # Remove deck from deck manager
         del self.decks[name]
 
+    
     def get_deck(self, name):
         if name not in self.decks:
             raise ValueError("Deck not found.")
