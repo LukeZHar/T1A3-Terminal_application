@@ -3,11 +3,12 @@
 - Title: Flashcard Terminal Application
 - Author: Luke Harris
 - End Date: 07/07/2024
-- [Link to help doc](./docs/Help%20Doc/help_documentation.md)
-- [Link to pseudocode doc](./docs/pseudocode/pseudocode.md)
 
-## Project Overview
-This terminal application allows you to create and manage flashcards through the command line and then quiz yourself on the questions you provided. 
+## Help Documentation
+- [Link to help doc](./docs/Help%20Doc/help_documentation.md)
+
+## Pseudocode Document
+- [Link to pseudocode doc](./docs/pseudocode/pseudocode.md)
 
 ## Source Control Repository
 - [Link to Github Repository](https://github.com/LukeZHar/T1A3-Terminal_application)
@@ -15,6 +16,32 @@ This terminal application allows you to create and manage flashcards through the
 ## Code Style Guide
 - Code Style PEP 8 - Style guide for Python Code
     - [Link to PEP 8 Reference website](https://peps.python.org/pep-0008/)
+
+## Project Overview
+This terminal application allows you to create and manage flashcards through the command line and then quiz yourself on the questions you provided. 
+
+### Summary of code and files
+- 'flashcards.py':
+    - Defines classes 'Flashcard', 'Deck', and 'DeckManager' for managing flashcards and decks.
+    - 'DeckManager' includes methods for creating and deleting, saving, loading decks, and running a quiz.
+    - Includes error handling for file operations.
+
+- 'main.py':
+    - Contains the main loop for the interface, allowing you to interact with the flashcard system
+    - Handles creating, deleteing, selecting decks, adding/viewing flashcards, and running the quiz
+    - Ensures error handling for unexpected issues.
+
+- 'test_flashcard.py':
+    -  Contains tests for the 'Deck' and 'DeckManager' classes using pytest 
+
+- 'decks.json' 
+    - A JSON file containing data for decks and flashcards
+
+- 'requirements.txt':
+    - Lists dependecies required by the application
+
+- 'run_app.sh':
+    - A shell script for running the application, including activating the virtual environment if it exists
 
 ## Features and Functions
 ### Deck Management
@@ -43,13 +70,6 @@ This terminal application allows you to create and manage flashcards through the
     - List all available decks.
     - Prompt to choose a deck by number.
     - Validates input and sets the current deck.
-
-#### List Decks:
-- Description: Helper function to list all decks.
-
-- Logic:
-    - Retrieve all JSON files from the decks directory.
-    - Display the names of the decks (without the .json extension).
 
 
 ### Flashcard Creation
@@ -125,16 +145,6 @@ Deadline: 01/07/2024
     - Validate user input.
     - Set selected deck to current working deck.
     - Confirm selection.
-
-Deadline: 01/07/2024
-
-1.4 List Decks
-- Tasks:
-    - Implement function to list all JSON files in directory.
-    - Format the output to exclude file extensions.
-    - Enhance output readability.
-    - Test listing with multiple decks.
-    - Add error handling for directory read.
 
 Deadline: 01/07/2024
 
