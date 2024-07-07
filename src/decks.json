@@ -25,6 +25,10 @@
             {
                 "question": "What's 20x2",
                 "answer": "40"
+            },
+            {
+                "question": "Whats 2 / 2",
+                "answer": "1"
             }
         ]
     },
