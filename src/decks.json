@@ -21,6 +21,10 @@
             {
                 "question": "What's 100 x 10?",
                 "answer": "1000"
+            },
+            {
+                "question": "What's 20x2",
+                "answer": "40"
             }
         ]
     },
