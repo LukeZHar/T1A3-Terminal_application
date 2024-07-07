@@ -1,3 +1,5 @@
+# Import emoji library
+import emoji
 # import from flashcard.py
 from flashcard import Flashcard, Deck, DeckManager
 
@@ -12,37 +14,40 @@ def main():
         # Display the main menu
         try:
             print("\nFlashcard Application:")
-            print("1. Create Deck")
-            print("2. Delete Deck")
-            print("3. Select Deck")
-            print("4. Add Flashcard")
-            print("5. View Flashcards")
-            print("6. Quiz")
-            print("7. Exit")
+            print(emoji.emojize("1. Create Deck :noteook_with_decorative_cover:"))
+            print(emoji.emojize("2. Delete Deck :recycle:"))
+            print(emoji.emojize("3. Select Deck :bookmark_tabs:"))
+            print(emoji.emojize("4. Add Flashcard :memo:"))
+            print(emoji.emojize("5. View Flashcards :eyes:"))
+            print(emoji.emojize("6. Quiz :game_die:"))
+            print(emoji.emojize("7. Exit :door:"))
             
             # Get input
             choice = input("Enter your choice: ").strip()
 
             # Process input into create deck
             if choice == "1":
-                deck_manager.create_deck(input("Enter deck name: "))
+                deck_name = input("Enter deck name: ")
+                deck_manager.create_deck(deck_name)
                 deck_manager.save_decks()
-                print("Deck created successfully.")
+                print(emoji.emojize("Deck created successfully. :white_check_mark:"))
             
             # Process input into delete deck
             elif choice == "2":
-                deck_manager.delete_deck(input("Enter deck name to delete: "))
+                deck_name = input("Enter deck name to delete: ")
+                deck_manager.delete_deck(deck_name)
                 deck_manager.save_decks()
-                print("Deck deleted successfully.")
+                print(emoji.emojize("Deck deleted successfully. :put_litter_in_its_place:"))
 
             # Process input into select deck
             elif choice == "3":
+                # List all available decks
                 print("\nAvailable Decks:")
                 for deck_name in deck_manager.decks.keys():
                     print(deck_name)
-                selected_name = input("Enter the deck name you want to select: ")
-                current_deck = deck_manager.get_deck(selected_name)
-                print(f"Selected deck: {current_deck.name}")
+                deck_name = input("Enter the deck name you want to select: ")
+                current_deck = deck_manager.get_deck(deck_name)
+                print(emoji.emojize(f"Selected deck: {current_deck.name} :thumbs_up:"))
 
             # Process input into add flashcard
             elif choice == "4":
