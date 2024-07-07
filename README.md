@@ -40,6 +40,9 @@ This terminal application allows you to create and manage flashcards through the
 - 'requirements.txt':
     - Lists dependecies required by the application
 
+- 'run_setup.sh:
+    - A shell script for checking if python is downloaded through 'check_python.py', downloading the denpendices from 'requirements.txt' if not installed already, and running the 'test_flashcard.py' tests
+
 - 'run_app.sh':
     - A shell script for running the application, including activating the virtual environment if it exists
 
