@@ -1,4 +1,4 @@
-# T1A3-Terminal_application
+# T1A3-Terminal_application-Luke Harris
 
 ## General Documentation
 
