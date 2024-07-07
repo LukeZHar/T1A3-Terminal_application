@@ -329,3 +329,8 @@ Deadline: 07/07/2024
 - Diamond: Decision point
 - Parallelogram: Input/Output 
 - Arrow: Flow of the program
+
+![Flowchart for main](./docs/Flowchart/Terminal_app_FlowChart.drawio.png)
+
+## Reference Website
+- [Link to draw.io](https://app.diagrams.net/)
