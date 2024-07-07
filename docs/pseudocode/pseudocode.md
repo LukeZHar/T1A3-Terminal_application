@@ -123,3 +123,43 @@
 ### Main function to run the tests
 - if __name__ == "__main__":
     - pytest.main()
+
+## check_python.py
+### Import the subprocess module for running system commands
+- import subprocess
+
+### Function to check if a specific Python command is installed
+- def check_python(command):
+    - try:
+        
+        "Run the command to get the Python version"
+        - result = subprocess.run([command, '--version'], capture_output=True, text=True)
+
+        "If the command is successful (return code 0), print the Python version"
+        - if result.returncode == 0:
+            - print(f"{command} is installed.")
+            - print(f"Version: {result.stdout.strip()}")
+            - return True
+        - else:
+            - return False
+    - except FileNotFoundError:
+        
+        "If the command is not found, return False"
+        - return False
+    - except Exception as e:
+        
+        "If an unexpected error occurs, print it and return False"
+        - print(f"An error occurred: {e}")
+        - return False
+
+### Main function to check for Python installation
+- if __name__ == "__main__":
+    
+    "Check if 'python' command is installed"
+    - if not check_python('python'):
+        
+        "If not, check if 'python3' command is installed"
+        - if not check_python('python3'):
+            
+            "If neither is installed, print that Python is not installed"
+            - print("Python is not installed.")

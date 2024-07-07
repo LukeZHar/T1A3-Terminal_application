@@ -211,8 +211,8 @@ Deadline: 04/07/2024
 Deadline: 05/07/2024
 
 ### Trello Screenshots
-![Trello board](./docs/Trello/Trello.png)
-![Trello Tasks](./docs/Trello/trello-tasks.png)
+![Trello board]()
+![Trello Tasks]()
 
 - [Link to Trello Website as a reference](https://trello.com/)
 
