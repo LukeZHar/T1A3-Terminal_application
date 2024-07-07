@@ -28,9 +28,10 @@
    - Then it will exit
 
 5. Next run the next sh command
+   - Command is './run_app.sh'
    - It will start virtual environment
    - Then will run the application
-   - Once done it will exit application
+   - Once done input 7 and it will exit application
 
 ---
 
@@ -49,19 +50,19 @@
    - Windows: 'venv/Scripts/activate
 
 3. Check for python
-   
+
    - Run this command 'python3 check_python.py
 
-3. Install Dependicies:
+4. Install Dependicies:
 
    - In your terminal while still in src run 'pip install -r requirements.txt'
 
-4. Usage instructions:
+5. Usage instructions:
 
    - Running the application:
      - In the terminal run: 'python3 main.py'
 
-5. Navigating the application
+6. Navigating the application
 
    - Create Deck: Choose 1 to create a new deck with a name of your choice
    - Delete Deck: Choose 2 to Delete an existing deck
