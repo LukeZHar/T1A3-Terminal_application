@@ -34,6 +34,11 @@ This terminal application allows you to create and manage flashcards through the
 - 'test_flashcard.py':
     -  Contains tests for the 'Deck' and 'DeckManager' classes using pytest 
 
+- 'check_python.py': 
+    - Uses a command ('python' or 'python3') as an argument to check if its installed
+    - Prints the version if it was successful
+    - Handles exceptions if command is not found or other errors occur
+
 - 'decks.json' 
     - A JSON file containing data for decks and flashcards
 
@@ -46,7 +51,7 @@ This terminal application allows you to create and manage flashcards through the
 - 'run_app.sh':
     - A shell script for running the application, including activating the virtual environment if it exists
 
-## Features and Functions
+## Features and Functions of the application
 ### Deck Management
 #### Create Deck:  
 - Description: Create a new deck. Input the deck name, verified to avoid duplicates, and then saves as a new JSON file.
@@ -75,13 +80,13 @@ This terminal application allows you to create and manage flashcards through the
     - Validates input and sets the current deck.
 
 
-### Flashcard Creation
+### Flashcard Creation and view
 - Description: Add new flashcards to the selected deck by providing a question and an answer.
 
 - Logic:
     - Prompts for a question and an answer.
     - Load the current deck from its JSON file.
-    - Append the new flashcard to the deck.
+    - Adds the new flashcard to the deck.
     - Save the updated deck back to the JSON file.
 
 

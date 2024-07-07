@@ -62,6 +62,7 @@
      - In the terminal run: 'python3 main.py'
 
 5. Navigating the application
+
    - Create Deck: Choose 1 to create a new deck with a name of your choice
    - Delete Deck: Choose 2 to Delete an existing deck
    - Select Deck: Choose 3 to Select a deck from the list shown

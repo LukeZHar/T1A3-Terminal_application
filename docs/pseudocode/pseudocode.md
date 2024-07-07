@@ -68,3 +68,58 @@
         - else:
             - display_error("Invalid choice. Please try again.")
 
+## test_flashcard.py 
+### Import the pytest module and necessary classes from flashcard.py
+- import pytest
+- from flashcard import Deck, Flashcard, DeckManager
+
+### Test the creation of a deck
+- def test_create_deck():  
+    
+    "Initialize DeckManager"
+    - deck_manager = DeckManager()
+
+    "Create a new deck named "Test Deck""
+    - deck_manager.create_deck('Test Deck')
+
+    "Assert that the deck is created and exists in DeckManager's decks"
+    - assert 'Test Deck' in deck_manager.decks
+
+### Test adding a flashcard to a deck
+- def test_add_flashcard():
+    
+    "Initialize a deck with the name "Test Deck""
+    - deck = Deck('Test Deck')
+
+    "Initialize a flashcard with a question and answer"
+    - flashcard = Flashcard('Question?', 'Answer.')
+
+    "Add the flashcard to the deck"
+    - deck.add_flashcard(flashcard)
+
+    "Assert that the flashcard is added to the deck"
+    - assert len(deck.flashcards) == 1
+
+### Test saving and loading decks
+- def test_save_load_decks(tmp_path):
+    "Create a temporary file path for decks.json"
+    - test_file = tmp_path / "decks.json"
+
+    "Initialize DeckManager with the temporary file path"
+    - deck_manager = DeckManager(filename=test_file)
+
+    "Create a new deck named "Test Deck""
+    - deck_manager.create_deck('Test Deck')
+
+    "Save the decks to the temporary file"
+    - deck_manager.save_decks()
+
+    "Initialize a new DeckManager to load the saved decks"
+    - new_manager = DeckManager(filename=test_file)
+
+    "Assert that the deck "Test Deck" exists in the new DeckManager's decks"
+    - assert 'Test Deck' in new_manager.decks
+
+### Main function to run the tests
+- if __name__ == "__main__":
+    - pytest.main()
