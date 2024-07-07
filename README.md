@@ -80,7 +80,7 @@ This terminal application allows you to create and manage flashcards through the
     - Validates input and sets the current deck.
 
 
-### Flashcard Creation and view
+### Flashcard Add and view
 - Description: Add new flashcards to the selected deck by providing a question and an answer.
 
 - Logic:
@@ -118,16 +118,18 @@ This terminal application allows you to create and manage flashcards through the
 
  
 ### Save and Load
-- Description: Save flashcards and decks in JSON files to load them later.
+- Description: Save flashcards and decks in JSON to load them later.
 
 - Logic:
     - Save: Convert the deck list to JSON format and write it to a file.
     - Load: Read the JSON file, parse it, and return the deck list.
 
-## Implementation Plan
+# Implementation Plan
+I will be using Trello to keep track of my Implementation plan, which I will include some screenshots at the bottom, I will also be writing them out inside my README to show my completed plan.
+## Flashcard.py 
 ### Deck Management
-1.1 Create Deck
-- Tasks:
+Create Deck
+- Checklist:
     - Setup project structure and directories.
     - Implement input prompt for deck name.
     - Check if deck already exists function.
@@ -136,8 +138,8 @@ This terminal application allows you to create and manage flashcards through the
   
 Deadline: 01/07/2024
 
-1.2 Delete Deck
-- Tasks:
+Delete Deck
+- Checklist:
     - Implement input prompt for deck name.
     - Check if deck file exists.
     - Delete the JSON file.
@@ -146,8 +148,8 @@ Deadline: 01/07/2024
 
 Deadline: 01/07/2024
 
-1.3 Select Deck
-- Tasks:
+Select Deck
+- Checklist:
     - List all existing decks function.
     - Implement input prompt for selecting a deck.
     - Validate user input.
@@ -156,9 +158,8 @@ Deadline: 01/07/2024
 
 Deadline: 01/07/2024
 
-### Flashcard Creation
-2.1 Add Flashcard
-- Tasks:
+### Flashcard Creation and view
+- Checklist:
     - Implement input prompts for question and answer.
     - Load the selected deck from JSON file.
     - Append new flashcard to the deck.
@@ -167,9 +168,9 @@ Deadline: 01/07/2024
 
 Deadline: 02/07/2024
 
-### Quiz
-3.1 Implement Quiz
-- Tasks:
+### Quiz and scoring
+Quiz
+- Checklist:
     - Load the selected deck from JSON file.
     - Shuffle the order of flashcards.
     - Implement loop to iterate through flashcards.
@@ -178,8 +179,8 @@ Deadline: 02/07/2024
 
 Deadline: 03/07/2024
 
-3.2 Scoring
-- Tasks:
+Scoring
+- Checklist:
     - Count correct and incorrect responses.
     - Display results at the end of the quiz.
     - Test scoring with different decks.
@@ -189,8 +190,7 @@ Deadline: 03/07/2024
 Deadline: 03/07/2024
 
 ### Review Mode
-4.1 Implement Review Mode
-- Tasks:
+- Checklist:
     - Store input during the quiz.
     - Implement function to display inputs and correct answers.
     - Format the output for review clarity.
@@ -200,8 +200,7 @@ Deadline: 03/07/2024
 Deadline: 04/07/2024
 
 ### Save and Load
-5.1 Save and Load Decks
-- Tasks:
+- Checklist:
     - Implement function to save the deck to JSON.
     - Implement function to load the deck from JSON.
     - Ensure data integrity during save/load.
@@ -210,9 +209,73 @@ Deadline: 04/07/2024
 
 Deadline: 05/07/2024
 
-### Trello Screenshots
-![Trello board]()
-![Trello Tasks]()
+## Main.py 
+- Checklist:
+    - Setup main menu
+    - Implement functions for choices that can be made
+    - Ensure the quiz functions 
+    - Add error handling measures
+    - Import Emoji and incorporate it
+
+Deadline: 07/07/2024
+
+## Check_Python.py
+- Checklist
+    - Implement a command execution(Use subprocess)
+    - Result handling (Print the correct information)
+    - Exception handling(Handle not found and general exceptions)
+    - Code Modularity(Function for checking if python is installed nad main block to call)
+    - Testing (Test to ensure it works)
+
+Deadline: 07/07/2024
+
+## Test_Flashcard.py
+- Checklist
+    - Setup pytest (Import)
+    - Test Deck creation
+    - Test Flashcard operations
+    - Test Deck deletion
+    - Test Save and Loading
+
+Deadline: 07/07/2024
+
+## Help Doc
+- Checklist
+    - Installation instructions (Steps to install)
+    - System Requirments(Outline the system and python version requirments)
+    - Usage instructions(Command line input)
+    - Features(The features and what they do)
+    - Organise(Format into sections so It's easy to read)
+
+Deadline: 07/07/2024
+
+## Pseudocode
+- Checklist
+    - Flashcard Pseudocode
+    - Main Pseudocode
+    - Test_Flashcard Pseudocode
+    - Check_Python Pseudocode
+    - Format into seperate sections
+
+Deadline: 07/07/2024
+
+## README.md
+- Checklist:
+    - Project introduction
+    - Link to help doc
+    - Link to github
+    - Link to Pseudocode doc
+    - Outline features and functions
+    - outline implemenation plan with a few trello screenshots
+    - Include a Flowchart
+
+### A few Trello Screenshots
+![Trello board](./docs/Trello/Trello.png)
+![Trello README plan](./docs/Trello/Trello-MD.png)
+![Trello Help doc plan](./docs/Trello/Trello-Help.png)
+![Trello Pseduo plan](./docs/Trello/Trello-Pseudo.png)
+![Trello Quiz plan](./docs/Trello/Trello-Quiz.png)
+
 
 - [Link to Trello Website as a reference](https://trello.com/)
 
